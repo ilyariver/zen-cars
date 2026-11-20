@@ -76,7 +76,7 @@ a { color: inherit; }
 .kicker { font: 600 13px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--stamp); margin-bottom: 18px; }
 .hero h1 { font-size: clamp(32px, 4.4vw, 60px); margin-bottom: 24px; }
 .lead { font-size: clamp(17px, 1.3vw, 19px); color: var(--ink-soft); max-width: 36em; margin-bottom: 32px; }
-.hero .phone { font-size: clamp(50px, 1.3vw, 19px); margin-bottom: 24px; text-decoration: none;
+.hero .phone { font-size: clamp(19px, 1.3vw, 45px); margin-bottom: 24px; text-decoration: none;
   display: inline-block; font-weight: 600;}
 
 .waybill {
