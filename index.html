@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZEN Cars — перегон автомобилей из Китая под ключ</title>
+  <meta name="description" content="Выкуп у дилера в Пекине, автовоз до Суйфэньхэ, растаможка в Уссурийске, СБКТС и ЭПТС, доставка в ваш город. Каждый этап закрыт документом.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23c2352b' stroke-width='3'/%3E%3Ctext x='16' y='21' font-size='13' text-anchor='middle' fill='%23c2352b' font-family='monospace' font-weight='700'%3EПЛ%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+
+  <header class="top">
+    <a class="brand" href="#hero" aria-label="ZEN Cars — на главную">
+      <span class="brand-seal" aria-hidden="true">ПЛ</span>
+      <span class="brand-name">ZEN Cars</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Меню</button>
+    <nav id="nav" class="nav" aria-label="Разделы">
+      <a href="#route">Маршрут</a>
+      <a href="#estimate">Смета</a>
+      <a href="#payment">Оплата</a>
+      <a href="#order" class="nav-cta">Заполнить путевой лист</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero">
+      <div class="hero-copy">
+        <p class="kicker">Перегон автомобилей из Китая · под ключ</p>
+        <h1>Машина из Китая — растаможенная, с&nbsp;ЭПТС и&nbsp;у&nbsp;вашего подъезда.</h1>
+        <a href="tel:+79807526917" class="phone">+7 (980) 752-69-17</a>
+        <p class="lead">Выкупаем у дилера в Пекине, везём автовозом через переход Суйфэньхэ — Пограничный, растаможиваем в Уссурийске, оформляем СБКТС и ЭПТС и отправляем в ваш город. Каждый этап закрывается документом, и он лежит в вашей папке раньше, чем вы платите за следующий.</p>
+        <a class="btn" href="#order">Заполнить путевой лист</a>
+      </div>
+
+      <div class="hero-spin" id="hero-spin">
+        <figure class="waybill" aria-label="Образец путевого листа на один автомобиль">
+          <div class="waybill-head">
+            <span>ZEN Cars</span>
+            <span class="mono">№ ПЛ-2611-0047</span>
+          </div>
+          <dl class="waybill-fields">
+            <div><dt>Отправление</dt><dd>北京 · Пекин, дилерский центр</dd></div>
+            <div><dt>Погранпереход</dt><dd>绥芬河 Суйфэньхэ — Пограничный</dd></div>
+            <div><dt>Таможня</dt><dd>Уссурийск, СВХ</dd></div>
+            <div><dt>Назначение</dt><dd>Ваш город, до подъезда</dd></div>
+            <div><dt>Груз</dt><dd>Легковой автомобиль, 1 ед.</dd></div>
+            <div><dt>VIN</dt><dd class="mono vin">LVTDB21B4RD000000</dd></div>
+            <div><dt>Пробег при выкупе</dt><dd class="mono">12 км</dd></div>
+          </dl>
+          <div class="turntable">
+            <canvas id="turntable" role="img" aria-label="Автомобиль на поворотном круге: осмотр со всех сторон перед погрузкой"></canvas>
+            <p class="turntable-angle mono" aria-hidden="true">Осмотр <b id="spin-deg">0</b>°</p>
+          </div>
+          <div class="spin-frames" role="group" aria-label="Фотоакт осмотра">
+            <button type="button" class="spin-frame" data-angle="0" aria-pressed="false">Правый борт</button>
+            <button type="button" class="spin-frame" data-angle="90" aria-pressed="false">Корма</button>
+            <button type="button" class="spin-frame" data-angle="180" aria-pressed="false">Левый борт</button>
+            <button type="button" class="spin-frame" data-angle="270" aria-pressed="false">Перед</button>
+          </div>
+          <div class="stamp stamp-hero" aria-hidden="true">
+            <span>ВЫПУЩЕНО</span>
+            <small>Уссурийская таможня</small>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="route" class="route" aria-labelledby="route-title">
+      <div class="route-sticky">
+        <div class="route-intro">
+          <h2 id="route-title">Маршрут: 1&nbsp;900&nbsp;км до таможни, ещё до 9&nbsp;300 до вашего города</h2>
+          <p class="mono route-meters"><span>Одометр <b id="odo">0</b> км</span><span>День ≈ <b id="day">1</b></span><span>Этап <b id="stage-num">1</b>/7</span><span>Папка <b id="doc-count">0</b>/12</span></p>
+        </div>
+
+        <div class="route-map">
+          <svg id="map" viewBox="0 0 800 470" role="img" aria-label="Схема маршрута: Пекин, Харбин, Суйфэньхэ, Пограничный, Уссурийск, далее на запад в ваш город">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0 L0 0 0 40" fill="none" stroke="var(--rule)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="800" height="470" fill="url(#grid)"/>
+            <path class="border-line" d="M0 132 L250 126 C420 120 520 112 560 130 C582 180 576 280 562 470"/>
+            <text class="country" x="250" y="300">中国 · КИТАЙ</text>
+            <text class="country" x="780" y="440" text-anchor="end">РОССИЯ</text>
+            <text class="country" x="420" y="112">РОССИЯ</text>
+            <polyline id="route-base" class="route-base" points=""/>
+            <polyline id="route-ink" class="route-ink" points=""/>
+            <g id="stations"></g>
+            <g id="car" class="map-car">
+              <g class="map-car-body">
+                <rect x="-15" y="-8" width="30" height="16" rx="4"/>
+                <rect x="2" y="-6" width="9" height="12" rx="2" class="map-car-glass"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <article class="stage-card" aria-live="polite">
+          <p class="stage-place mono" id="stage-place">北京 · Пекин</p>
+          <h3 id="stage-title">Подбор и выкуп у дилера</h3>
+          <p id="stage-text">Находим машину у официального дилера, сверяем комплектацию, дату производства и VIN по документам дилера. Выкупаем по договору поручения на ваше имя.</p>
+          <p class="stage-risk"><b>Где ломается:</b> <span id="stage-risk">10-й символ VIN — это модельный год. Машина 2024 года, проданная как 2025-я, всплывёт на таможне. Сверяем VIN и шильдик до оплаты.</span></p>
+        </article>
+
+        <aside class="folder" aria-label="Папка документов">
+          <p class="folder-label">Ваша папка</p>
+          <ol id="folder-list" class="folder-list"></ol>
+        </aside>
+      </div>
+    </section>
+
+    <section id="estimate" class="estimate" aria-labelledby="estimate-title">
+      <div class="section-head">
+        <h2 id="estimate-title">Смета под ключ: из чего складывается цена</h2>
+        <p>Три типичных заказа, разложенные по строкам. Цифры иллюстративные: курс, пошлина и утильсбор считаются по ставкам на дату ввоза — точную смету мы отдаём на конкретный VIN.</p>
+      </div>
+
+      <div class="estimate-grid">
+        <div class="cases" role="tablist" aria-label="Пример заказа">
+          <button role="tab" type="button" class="case" data-case="0" aria-selected="true">
+            <b>Кроссовер 1.5T</b><span>147 л.с. · новый</span>
+          </button>
+          <button role="tab" type="button" class="case" data-case="1" aria-selected="false">
+            <b>Седан 1.5</b><span>113 л.с. · новый</span>
+          </button>
+          <button role="tab" type="button" class="case" data-case="2" aria-selected="false">
+            <b>Кроссовер 2.0T</b><span>197 л.с. · новый</span>
+          </button>
+          <label class="city">
+            <span>Последняя миля</span>
+            <select id="city">
+              <option value="0">Забираю в Уссурийске</option>
+              <option value="1">Новосибирск, ЖД-контейнер</option>
+              <option value="2">Екатеринбург, автовоз</option>
+              <option value="3" selected>Москва, автовоз</option>
+            </select>
+          </label>
+          <p class="rates mono">Условный курс сметы: ¥1 = 11,2 ₽ · €1 = 95 ₽</p>
+        </div>
+
+        <div class="receipt" role="tabpanel" aria-live="polite">
+          <p class="receipt-head mono">СМЕТА · <span id="receipt-model">Кроссовер 1.5T, 147 л.с.</span></p>
+          <ul id="receipt-lines" class="receipt-lines"></ul>
+          <p class="receipt-total"><span>Итого под ключ</span><b id="receipt-total" class="mono">—</b></p>
+          <p id="receipt-note" class="receipt-note"></p>
+        </div>
+      </div>
+
+      <div class="hp-line">
+        <div class="hp-copy">
+          <h3>Граница 160 л.с.</h3>
+          <p>Для физлиц, ввозящих машину для себя, утильсбор льготный только до 160 л.с.: 3&nbsp;400&nbsp;₽ за новую и 5&nbsp;200&nbsp;₽ за машину старше трёх лет — при условии, что вы не продаёте её 12 месяцев. Выше 160 л.с. сбор считается по общей шкале и измеряется сотнями тысяч рублей. Поэтому мощность по одобрению типа мы сверяем до выкупа, а не на таможне.</p>
+        </div>
+        <div class="hp-gauge">
+          <label for="hp" class="mono">Мощность: <b id="hp-value">147</b> л.с.</label>
+          <input id="hp" type="range" min="90" max="260" step="1" value="147">
+          <p id="hp-verdict" class="hp-verdict">Льготный утильсбор: 3 400 ₽</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="payment" class="payment" aria-labelledby="payment-title">
+      <div class="section-head">
+        <h2 id="payment-title">Платите за печать, а не за обещание</h2>
+        <p>Деньги уходят траншами. Следующий платёж — только после того, как документ предыдущего этапа лежит у вас в папке.</p>
+      </div>
+      <ol class="tranches">
+        <li><span class="mono">01</span><h3>Задаток</h3><p>Резерв машины у дилера и проверка VIN. Документ: договор поручения.</p></li>
+        <li><span class="mono">02</span><h3>Выкуп</h3><p>Оплата дилеру в юанях. Документ: инвойс дилера и экспортная декларация КНР.</p></li>
+        <li><span class="mono">03</span><h3>Таможня</h3><p>Пошлина, сбор и утильсбор — на счёт таможни. Документ: ТПО и отметка о выпуске.</p></li>
+        <li><span class="mono">04</span><h3>Последняя миля</h3><p>Перевозка и наша работа. Документ: ЭПТС и акт приёма-передачи.</p></li>
+      </ol>
+    </section>
+
+    <section id="order" class="order" aria-labelledby="order-title">
+      <div class="section-head">
+        <h2 id="order-title">Заполните путевой лист</h2>
+        <p>Пять полей — и мы вернёмся с подбором конкретных машин у дилеров и сметой на каждый VIN.</p>
+      </div>
+
+      <form id="order-form" class="order-form" novalidate>
+        <div class="field">
+          <label for="f-model">Марка и модель</label>
+          <input id="f-model" name="model" type="text" autocomplete="off" required placeholder="например, кроссовер до 160 л.с.">
+          <p class="err" id="e-model">Укажите модель или класс машины.</p>
+        </div>
+        <div class="field">
+          <label for="f-budget">Бюджет под ключ</label>
+          <select id="f-budget" name="budget" required>
+            <option value="">Выберите</option>
+            <option>до 2,5 млн ₽</option>
+            <option>2,5–3,5 млн ₽</option>
+            <option>3,5–5 млн ₽</option>
+            <option>больше 5 млн ₽</option>
+          </select>
+          <p class="err" id="e-budget">Выберите бюджет.</p>
+        </div>
+        <div class="field">
+          <label for="f-city">Город назначения</label>
+          <input id="f-city" name="city" type="text" autocomplete="address-level2" required>
+          <p class="err" id="e-city">Укажите город.</p>
+        </div>
+        <fieldset class="field field-radio">
+          <legend>Последняя миля</legend>
+          <label><input type="radio" name="mile" value="Автовоз" checked> Автовоз</label>
+          <label><input type="radio" name="mile" value="ЖД-контейнер"> ЖД-контейнер</label>
+          <label><input type="radio" name="mile" value="Заберу в Уссурийске"> Заберу в Уссурийске</label>
+        </fieldset>
+        <div class="field">
+          <label for="f-name">Имя</label>
+          <input id="f-name" name="name" type="text" autocomplete="given-name" required>
+          <p class="err" id="e-name">Как к вам обращаться?</p>
+        </div>
+        <div class="field">
+          <label for="f-phone">Телефон</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+7 900 000-00-00">
+          <p class="err" id="e-phone">Нужен номер из 11 цифр, начиная с 7 или 8.</p>
+        </div>
+        <button class="btn" type="submit">Завести путевой лист</button>
+      </form>
+
+      <div id="order-done" class="order-done" hidden tabindex="-1">
+        <div class="stamp stamp-done" aria-hidden="true"><span>ПРИНЯТО</span><small>ZEN Cars</small></div>
+        <h3>ZEN Cars <span class="mono" id="done-number"></span> заведён</h3>
+        <dl id="done-summary" class="waybill-fields"></dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p><b>ZEN Cars</b> — набросок. Оператор вымышленный; маршруты и документы реальные, а сроки, курсы и суммы иллюстративные и не являются офертой.</p>
+    <p class="mono">Пекин → Суйфэньхэ → Пограничный → Уссурийск → ваш город</p>
+  </footer>
+</body>
+</html>
